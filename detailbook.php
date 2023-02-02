@@ -8,6 +8,7 @@
     <title>FemCoders Library</title>
 </head>
 <body>
+    
     <div class="logo">
         <i class="fa-solid fa-3x fa-book"></i>
         <h1>FemCoders Library</h1>
@@ -20,10 +21,6 @@
           <a href="./main.php">Home</a>
           <a href="./addbook.php">Add Books</a>
         </div>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            </a>
-        </div>
-    </div>
 
 <?php
  include("connection.php");
@@ -73,5 +70,6 @@ mysqli_close($conn);
     <a href="delete.php?isbn=<?php echo $row->isbn ?> ">
     <img class = "icon" src="./images/trash-can-solid.svg" alt= "delete"/></a>
     <script src="https://kit.fontawesome.com/27198e3231.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

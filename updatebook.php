@@ -15,9 +15,19 @@ $row=mysqli_fetch_array($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>FemCoders Library</title>
 </head>
 <body>
+<?php if(isset($_SESSION['alert'])){
+        $respuesta = $_SESSION['alert'];
+        ?>
+        <script>
+            var a = <?php echo $respuesta?>
+            alert(a);
+        </script>
+    <?php
+    }?>
 <div class="logo">
         <i class="fa-solid fa-3x fa-book"></i>
         <h1>FemCoders Library</h1>
@@ -53,6 +63,7 @@ $row=mysqli_fetch_array($query);
         
         <input class="button" type= "submit" id ="submit" name="submit" value="EDIT" />
     </form>
+    
     <script src="https://kit.fontawesome.com/27198e3231.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -8,6 +8,15 @@
     <title>FemCoders Library</title>
 </head>
 <body>
+<?php if(isset($_SESSION['alert'])){
+        $respuesta = $_SESSION['alert'];
+        ?>
+        <script>
+            var a = <?php echo $respuesta?>
+            alert(a);
+        </script>
+    <?php
+    }?>
 <div class="logo">
         <i class="fa-solid fa-3x fa-book"></i>
         <h1>FemCoders Library</h1>
@@ -66,10 +75,11 @@ $stmt= $conn->prepare($sql);
 $stmt->bind_param("sssss", $author, $title, $isbn, $description, $bookcover);
 
 if ($stmt->execute()) {
-    echo "New record created successfully";
+    session_start();
+    $_SESSION['alert'] = "New record created successfully";
    } else {
-    echo "Unable to create record";
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    session_start();
+    $_SESSION['alert'] = "Error, new record doesn't created";
 }
 
 
@@ -105,6 +115,7 @@ $stmt->close();
 $conn->close();
 }
 ?>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://kit.fontawesome.com/27198e3231.js" crossorigin="anonymous"></script>
 </body>
 </html>

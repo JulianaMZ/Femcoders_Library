@@ -15,6 +15,8 @@ $sql="UPDATE books SET  title='$title', author='$author',description='$descripti
 $query=mysqli_query($conn,$sql);
 
     if($query){
+        session_start();
+        $_SESSION['alert'] = "New record created successfully";
         Header("Location: detailbook.php?isbn=$isbn");
     }
 ?>
